@@ -21,9 +21,25 @@ async function getPost(slug: string) {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const post = await getPost(params.slug);
   if (!post) return { title: "Post Not Found" };
+
+  const title = `${post.title} | Marco Braun`;
+  const description = post.excerpt || post.title;
+
   return {
-    title: `${post.title} | Marco Braun`,
-    description: post.excerpt || post.title,
+    title,
+    description,
+    openGraph: {
+      title: post.title,
+      description,
+      type: "article",
+      publishedTime: post.createdAt.toISOString(),
+      authors: ["Marco Braun"],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description,
+    },
   };
 }
 

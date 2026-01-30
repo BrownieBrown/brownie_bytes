@@ -18,6 +18,20 @@ const geistMono = localFont({
 export const metadata: Metadata = {
   title: "Marco Braun | Developer",
   description: "Machine Learning Engineer building cloud-native AI infrastructure",
+  metadataBase: new URL("https://browniebytes.me"),
+  openGraph: {
+    title: "Marco Braun | Developer",
+    description: "Machine Learning Engineer building cloud-native AI infrastructure",
+    url: "https://browniebytes.me",
+    siteName: "Marco Braun",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Marco Braun | Developer",
+    description: "Machine Learning Engineer building cloud-native AI infrastructure",
+  },
 };
 
 export default function RootLayout({
