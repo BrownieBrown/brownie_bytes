@@ -3,7 +3,7 @@ import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 
 export const metadata: Metadata = {
-  title: "Blog | Brownie Bytes",
+  title: "Logs | Brownie Bytes",
   description: "Thoughts on software development.",
 };
 
@@ -57,7 +57,7 @@ export default async function BlogPage({ searchParams }: PageProps) {
     <div className="pt-32 pb-24">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <h1 className="text-5xl md:text-7xl font-medium tracking-tight mb-16">
-          Blog
+          Logs
         </h1>
 
         {posts.length > 0 ? (

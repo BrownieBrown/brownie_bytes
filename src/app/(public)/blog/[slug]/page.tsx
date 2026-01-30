@@ -38,7 +38,7 @@ export default async function BlogPostPage({ params }: PageProps) {
     <div className="pt-32 pb-24">
       <div className="max-w-3xl mx-auto px-6 lg:px-12">
         <Link href="/blog" className="text-sm text-dark/40 hover:text-dark">
-          ← Back to blog
+          ← Back to logs
         </Link>
 
         <article className="mt-12">

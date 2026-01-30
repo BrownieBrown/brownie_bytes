@@ -6,11 +6,11 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           <div>
-            <p className="text-2xl font-medium tracking-tight mb-4">
-              marco braun
+            <p className="text-2xl font-medium tracking-tight font-mono mb-4">
+              &gt; marco_
             </p>
-            <p className="text-sm opacity-70">
-              Building thoughtful software.
+            <p className="text-sm opacity-70 font-mono">
+              console.log('hello world')
             </p>
           </div>
           <div>
@@ -18,7 +18,7 @@ export default function Footer() {
             <div className="flex flex-col gap-2">
               <Link href="/" className="text-sm opacity-70">Home</Link>
               <Link href="/about" className="text-sm opacity-70">About</Link>
-              <Link href="/blog" className="text-sm opacity-70">Blog</Link>
+              <Link href="/blog" className="text-sm opacity-70">Logs</Link>
               <Link href="/experience" className="text-sm opacity-70">Experience</Link>
             </div>
           </div>

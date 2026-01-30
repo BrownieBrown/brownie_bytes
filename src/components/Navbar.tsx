@@ -16,7 +16,7 @@ export default function Navbar() {
               About
             </Link>
             <Link href="/blog" className="text-sm">
-              Blog
+              Logs
             </Link>
             <Link href="/experience" className="text-sm">
               Experience
