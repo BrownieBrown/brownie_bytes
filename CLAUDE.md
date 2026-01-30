@@ -79,3 +79,4 @@ When PostgreSQL is available:
 - User prefers clean, minimal design
 - No authentication needed for now
 - Blog posts will be managed directly in database (no admin UI currently)
+- Do not add "Co-Authored-By" lines to git commits
