@@ -37,30 +37,29 @@ export default async function BlogPostPage({ params }: PageProps) {
   return (
     <div className="pt-32 pb-24">
       <div className="max-w-3xl mx-auto px-6 lg:px-12">
-        <Link href="/blog" className="text-sm text-dark/40 hover:text-dark">
-          ← Back to logs
+        <Link href="/blog" className="text-sm text-dark/40 hover:text-accent font-mono">
+          $ cd ../logs
         </Link>
 
         <article className="mt-12">
           <header className="mb-12">
-            <p className="text-sm text-dark/40 mb-4">
-              {new Date(post.createdAt).toLocaleDateString("en-US", {
-                month: "long",
-                day: "numeric",
-                year: "numeric",
-              })}
+            <p className="text-sm text-dark/40 font-mono mb-4">
+              // {new Date(post.createdAt).toISOString().split('T')[0]}
             </p>
-            <h1 className="text-4xl md:text-5xl font-medium tracking-tight leading-tight">
-              {post.title}
+            <h1 className="text-4xl md:text-5xl font-medium tracking-tight leading-tight font-mono">
+              <span className="text-accent">#</span> {post.title}
             </h1>
           </header>
 
-          <div className="prose prose-lg max-w-none">
-            {post.content.split("\n").map((paragraph: string, index: number) => (
-              <p key={index} className="text-dark/80 leading-relaxed mb-6">
-                {paragraph}
-              </p>
-            ))}
+          <div className="terminal p-6 rounded-lg font-mono">
+            <p className="text-green-400/60 mb-4">$ cat {post.slug}.md</p>
+            <div className="text-green-400/90 leading-relaxed space-y-4">
+              {post.content.split("\n").map((paragraph: string, index: number) => (
+                <p key={index}>
+                  {paragraph}
+                </p>
+              ))}
+            </div>
           </div>
         </article>
       </div>

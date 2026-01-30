@@ -16,11 +16,8 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Marco Braun",
-  description: "Developer portfolio",
-  icons: {
-    icon: "/icon.svg",
-  },
+  title: "Marco Braun | Developer",
+  description: "Machine Learning Engineer building cloud-native AI infrastructure",
 };
 
 export default function RootLayout({

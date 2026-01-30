@@ -8,6 +8,7 @@ export const metadata: Metadata = {
 const experiences = [
   {
     id: "1",
+    hash: "a1b2c3d",
     company: "OVHcloud",
     location: "Munich, Germany",
     title: "Machine Learning Engineer",
@@ -25,6 +26,7 @@ const experiences = [
   },
   {
     id: "2",
+    hash: "e4f5g6h",
     company: "Exxeta",
     location: "Munich, Germany",
     title: "Software Developer",
@@ -43,6 +45,7 @@ const experiences = [
   },
   {
     id: "3",
+    hash: "i7j8k9l",
     company: "Personio, Trbo, Reachbird",
     location: "Munich, Germany",
     title: "Sales & Account Management",
@@ -56,6 +59,7 @@ const experiences = [
 ];
 
 const education = {
+  hash: "m0n1o2p",
   degree: "Bachelor of Arts - Business Psychology",
   school: "Hochschule Fresenius",
   location: "Munich, Germany",
@@ -66,89 +70,108 @@ export default function ExperiencePage() {
   return (
     <div className="pt-32 pb-24">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        <h1 className="text-5xl md:text-7xl font-medium tracking-tight mb-4">
-          Experience
-        </h1>
-        <p className="text-xl text-dark/50 mb-16">
-          3+ years building production systems
-        </p>
+        {/* Header */}
+        <div className="font-mono mb-16">
+          <p className="text-dark/40 mb-2">$ git log --oneline --graph</p>
+          <h1 className="text-5xl md:text-7xl font-medium tracking-tight text-accent">
+            # Experience
+          </h1>
+          <p className="text-xl text-dark/50 mt-4">
+            // 3+ years building production systems
+          </p>
+        </div>
 
-        {/* Work Experience */}
-        <div className="space-y-20">
-          {experiences.map((exp) => (
-            <div key={exp.id} className="grid md:grid-cols-4 gap-8">
-              <div>
-                <p className="text-sm text-dark/40 mb-1">
-                  {exp.startDate} — {exp.current ? "Present" : exp.endDate}
-                </p>
+        {/* Work Experience - Git Log Style */}
+        <div className="space-y-0">
+          {experiences.map((exp, index) => (
+            <div key={exp.id} className="relative pl-8 pb-12 border-l-2 border-dark/10 last:border-l-0">
+              {/* Git commit dot */}
+              <div className="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-dark border-4 border-white" />
+
+              {/* Commit header */}
+              <div className="font-mono mb-4">
+                <span className="text-accent">{exp.hash}</span>
+                <span className="text-dark/40"> - </span>
+                <span className="text-dark/60">{exp.startDate} {exp.current ? "→ HEAD" : `→ ${exp.endDate}`}</span>
                 {exp.current && (
-                  <span className="inline-block text-xs font-medium text-accent bg-accent/10 px-2 py-1 rounded-full">
-                    Current
+                  <span className="ml-2 text-xs bg-green-400/20 text-green-600 px-2 py-0.5 rounded">
+                    HEAD
                   </span>
                 )}
               </div>
-              <div className="md:col-span-3">
-                <h2 className="text-2xl font-medium mb-1">{exp.title}</h2>
-                <p className="text-dark/60 mb-4">
-                  {exp.company} <span className="text-dark/30">·</span> {exp.location}
-                </p>
-                <p className="text-dark/70 leading-relaxed mb-4">{exp.description}</p>
 
-                {exp.highlights.length > 0 && (
-                  <ul className="space-y-2 mb-6">
-                    {exp.highlights.map((highlight, index) => (
-                      <li key={index} className="text-dark/60 text-sm pl-4 border-l-2 border-dark/10">
-                        {highlight}
+              {/* Commit message */}
+              <div className="mb-4">
+                <h2 className="text-2xl font-medium font-mono">
+                  <span className="text-accent">&gt;</span> {exp.title}
+                </h2>
+                <p className="text-dark/60 font-mono">
+                  @ {exp.company} <span className="text-dark/30">|</span> {exp.location}
+                </p>
+              </div>
+
+              <p className="text-dark/70 leading-relaxed mb-4">{exp.description}</p>
+
+              {exp.highlights.length > 0 && (
+                <div className="terminal p-4 rounded-lg mb-4">
+                  <p className="text-green-400/60 font-mono text-sm mb-3">$ cat CHANGELOG.md</p>
+                  <ul className="space-y-2 font-mono text-sm">
+                    {exp.highlights.map((highlight, i) => (
+                      <li key={i} className="text-green-400/80">
+                        <span className="text-green-400/40">- </span>{highlight}
                       </li>
                     ))}
                   </ul>
-                )}
+                </div>
+              )}
 
-                {exp.technologies.length > 0 && (
-                  <div className="flex flex-wrap gap-2">
-                    {exp.technologies.map((tech) => (
-                      <span
-                        key={tech}
-                        className="text-xs px-3 py-1 bg-dark/5 rounded-full text-dark/60"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                )}
-              </div>
+              {exp.technologies.length > 0 && (
+                <div className="flex flex-wrap gap-2 font-mono">
+                  {exp.technologies.map((tech) => (
+                    <span
+                      key={tech}
+                      className="text-xs px-3 py-1 bg-dark/5 rounded text-dark/60"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              )}
             </div>
           ))}
         </div>
 
         {/* Education */}
-        <div className="mt-24 pt-16 border-t border-dark/10">
-          <p className="text-sm font-medium text-dark/40 mb-8">Education</p>
-          <div className="grid md:grid-cols-4 gap-8">
-            <div>
-              <p className="text-sm text-dark/40">{education.year}</p>
-            </div>
-            <div className="md:col-span-3">
-              <h2 className="text-xl font-medium mb-1">{education.degree}</h2>
-              <p className="text-dark/60">
-                {education.school} <span className="text-dark/30">·</span> {education.location}
-              </p>
-            </div>
+        <div className="mt-16 pt-16 border-t border-dark/10">
+          <p className="text-sm font-mono text-dark/40 mb-8">// education</p>
+          <div className="font-mono">
+            <p className="mb-2">
+              <span className="text-accent">{education.hash}</span>
+              <span className="text-dark/40"> - </span>
+              <span className="text-dark/60">{education.year}</span>
+              <span className="ml-2 text-xs bg-dark/10 text-dark/60 px-2 py-0.5 rounded">
+                tag: v0.1.0
+              </span>
+            </p>
+            <h2 className="text-xl font-medium">
+              <span className="text-accent">&gt;</span> {education.degree}
+            </h2>
+            <p className="text-dark/60">
+              @ {education.school} <span className="text-dark/30">|</span> {education.location}
+            </p>
           </div>
         </div>
 
-        {/* Download CV */}
+        {/* Links */}
         <div className="mt-16 pt-16 border-t border-dark/10">
-          <div className="flex flex-wrap gap-6">
-            <a
-              href="https://www.linkedin.com/in/marco-braun-b11423145"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-sm font-medium border border-dark/20 px-6 py-3 rounded-full hover:border-accent hover:text-accent transition-colors"
-            >
-              View LinkedIn Profile
-            </a>
-          </div>
+          <a
+            href="https://www.linkedin.com/in/marco-braun-b11423145"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 font-mono text-sm bg-dark text-green-400 px-6 py-3 rounded hover:bg-dark/80 transition-colors"
+          >
+            $ open linkedin://marco-braun
+          </a>
         </div>
       </div>
     </div>

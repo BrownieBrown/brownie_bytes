@@ -24,3 +24,40 @@ a {
 a:hover {
   opacity: 0.7;
 }
+
+/* Terminal theme */
+.terminal {
+  background: #1a1a1a;
+  color: #4ade80;
+}
+
+.terminal-amber {
+  background: #1a1a1a;
+  color: #fcba70;
+}
+
+/* Cursor blink animation */
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.cursor-blink::after {
+  content: "_";
+  animation: blink 1s infinite;
+}
+
+/* Typing effect for terminal prompts */
+.terminal-prompt::before {
+  content: "> ";
+  color: #4ade80;
+}
+
+/* Code comment style */
+.code-comment {
+  color: #6b7280;
+}
+
+.code-comment::before {
+  content: "// ";
+}

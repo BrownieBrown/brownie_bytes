@@ -56,62 +56,69 @@ export default async function BlogPage({ searchParams }: PageProps) {
   return (
     <div className="pt-32 pb-24">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        <h1 className="text-5xl md:text-7xl font-medium tracking-tight mb-16">
-          Logs
-        </h1>
+        {/* Header */}
+        <div className="font-mono mb-16">
+          <p className="text-dark/40 mb-2">$ tail -f /var/log/marco.log</p>
+          <h1 className="text-5xl md:text-7xl font-medium tracking-tight text-accent">
+            # Logs
+          </h1>
+        </div>
 
         {posts.length > 0 ? (
           <>
-            <div className="space-y-12">
-              {posts.map((post) => (
-                <Link key={post.id} href={`/blog/${post.slug}`} className="block group">
-                  <div className="grid md:grid-cols-4 gap-4 py-8 border-b border-dark/10">
-                    <p className="text-sm text-dark/40">
-                      {new Date(post.createdAt).toLocaleDateString("en-US", {
-                        month: "short",
-                        day: "numeric",
-                        year: "numeric",
-                      })}
-                    </p>
-                    <div className="md:col-span-3">
-                      <h2 className="text-2xl font-medium mb-2 group-hover:text-accent transition-colors">
+            <div className="terminal p-6 rounded-lg">
+              <div className="space-y-6">
+                {posts.map((post) => (
+                  <Link key={post.id} href={`/blog/${post.slug}`} className="block group">
+                    <div className="font-mono">
+                      <p className="text-green-400/60 text-sm mb-1">
+                        [{new Date(post.createdAt).toISOString().replace('T', ' ').split('.')[0]}]
+                      </p>
+                      <h2 className="text-xl text-green-400 group-hover:text-accent transition-colors">
+                        <span className="text-green-400/40">&gt; </span>
                         {post.title}
                       </h2>
                       {post.excerpt && (
-                        <p className="text-dark/60">{post.excerpt}</p>
+                        <p className="text-green-400/60 mt-1 pl-4">{post.excerpt}</p>
                       )}
                     </div>
-                  </div>
-                </Link>
-              ))}
+                  </Link>
+                ))}
+              </div>
             </div>
 
             {pagination.totalPages > 1 && (
-              <div className="flex gap-4 mt-12">
+              <div className="flex gap-4 mt-8 font-mono text-sm">
                 {pagination.page > 1 && (
                   <Link
                     href={`/blog?page=${pagination.page - 1}`}
-                    className="text-sm font-medium"
+                    className="text-dark/60 hover:text-accent"
                   >
-                    Previous
+                    $ prev
                   </Link>
                 )}
-                <span className="text-sm text-dark/40">
-                  {pagination.page} / {pagination.totalPages}
+                <span className="text-dark/40">
+                  [{pagination.page}/{pagination.totalPages}]
                 </span>
                 {pagination.page < pagination.totalPages && (
                   <Link
                     href={`/blog?page=${pagination.page + 1}`}
-                    className="text-sm font-medium"
+                    className="text-dark/60 hover:text-accent"
                   >
-                    Next
+                    $ next
                   </Link>
                 )}
               </div>
             )}
           </>
         ) : (
-          <p className="text-dark/60">No posts yet. Check back soon.</p>
+          <div className="terminal p-6 rounded-lg font-mono">
+            <p className="text-green-400/60">$ cat logs</p>
+            <p className="text-accent mt-2">Error: No logs found. Check back soon.</p>
+            <p className="text-green-400/40 mt-4">
+              <span className="cursor-blink">&gt;</span>
+            </p>
+          </div>
         )}
       </div>
     </div>
