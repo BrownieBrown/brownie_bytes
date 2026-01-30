@@ -77,13 +77,13 @@ export default function ExperiencePage() {
             # Experience
           </h1>
           <p className="text-xl text-dark/50 mt-4">
-            // 3+ years building production systems
+            {"// 3+ years building production systems"}
           </p>
         </div>
 
         {/* Work Experience - Git Log Style */}
         <div className="space-y-0">
-          {experiences.map((exp, index) => (
+          {experiences.map((exp) => (
             <div key={exp.id} className="relative pl-8 pb-12 border-l-2 border-dark/10 last:border-l-0">
               {/* Git commit dot */}
               <div className="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-dark border-4 border-white" />
@@ -143,7 +143,7 @@ export default function ExperiencePage() {
 
         {/* Education */}
         <div className="mt-16 pt-16 border-t border-dark/10">
-          <p className="text-sm font-mono text-dark/40 mb-8">// education</p>
+          <p className="text-sm font-mono text-dark/40 mb-8">{"// education"}</p>
           <div className="font-mono">
             <p className="mb-2">
               <span className="text-accent">{education.hash}</span>

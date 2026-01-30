@@ -39,7 +39,7 @@ export default function AboutPage() {
             # About
           </h1>
           <p className="text-xl text-dark/50 mt-4">
-            // munich, germany
+            {"// munich, germany"}
           </p>
         </div>
 
@@ -70,8 +70,7 @@ export default function AboutPage() {
               when writing hard code?
             </p>
             <p className="text-dark/50 font-mono text-sm">
-              /* BA in Business Psychology, because apparently I like to understand
-              why systems (and people) behave the way they do. */
+              {"/* BA in Business Psychology, because apparently I like to understand why systems (and people) behave the way they do. */"}
             </p>
           </div>
 
@@ -120,7 +119,7 @@ export default function AboutPage() {
 
         {/* Contact */}
         <div className="mt-24 pt-16 border-t border-dark/10">
-          <p className="text-sm font-mono text-dark/40 mb-6">// connect</p>
+          <p className="text-sm font-mono text-dark/40 mb-6">{"// connect"}</p>
           <div className="terminal inline-block p-6 rounded-lg font-mono">
             <p className="text-green-400/60 mb-4">$ cat .env</p>
             <div className="space-y-2">

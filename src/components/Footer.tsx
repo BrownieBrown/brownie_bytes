@@ -14,7 +14,7 @@ export default function Footer() {
             </p>
           </div>
           <div>
-            <p className="text-sm text-green-400/60 mb-4">// pages</p>
+            <p className="text-sm text-green-400/60 mb-4">{"// pages"}</p>
             <div className="flex flex-col gap-2">
               <Link href="/" className="text-sm text-green-400/80 hover:text-accent">~/home</Link>
               <Link href="/about" className="text-sm text-green-400/80 hover:text-accent">~/about</Link>
@@ -23,7 +23,7 @@ export default function Footer() {
             </div>
           </div>
           <div>
-            <p className="text-sm text-green-400/60 mb-4">// connect</p>
+            <p className="text-sm text-green-400/60 mb-4">{"// connect"}</p>
             <div className="flex flex-col gap-2">
               <a href="mailto:marco_alexander_braun@proton.me" className="text-sm text-green-400/80 hover:text-accent">
                 $EMAIL

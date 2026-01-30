@@ -44,7 +44,7 @@ export default async function BlogPostPage({ params }: PageProps) {
         <article className="mt-12">
           <header className="mb-12">
             <p className="text-sm text-dark/40 font-mono mb-4">
-              // {new Date(post.createdAt).toISOString().split('T')[0]}
+              {"// "}{new Date(post.createdAt).toISOString().split('T')[0]}
             </p>
             <h1 className="text-4xl md:text-5xl font-medium tracking-tight leading-tight font-mono">
               <span className="text-accent">#</span> {post.title}

@@ -34,7 +34,7 @@ export default async function HomePage() {
       {/* Hero */}
       <section className="min-h-screen flex items-center pt-20">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-24">
-          <p className="text-sm font-mono text-dark/40 mb-6">// munich, germany</p>
+          <p className="text-sm font-mono text-dark/40 mb-6">{"// munich, germany"}</p>
           <div className="font-mono mb-8">
             <p className="text-dark/40 text-lg mb-2">$ whoami</p>
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-medium tracking-tight leading-none">
@@ -88,7 +88,7 @@ export default async function HomePage() {
       {/* What I Do */}
       <section className="py-24 border-t border-dark/10">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <p className="text-sm font-mono text-dark/40 mb-8">// what_i_do</p>
+          <p className="text-sm font-mono text-dark/40 mb-8">{"// what_i_do"}</p>
           <div className="grid md:grid-cols-2 gap-12">
             <div>
               <h2 className="text-2xl font-medium mb-4 font-mono">
@@ -136,7 +136,7 @@ export default async function HomePage() {
       {featuredPosts.length > 0 && (
         <section className="py-24 border-t border-dark/10">
           <div className="max-w-7xl mx-auto px-6 lg:px-12">
-            <p className="text-sm font-mono text-dark/40 mb-8">// recent_logs</p>
+            <p className="text-sm font-mono text-dark/40 mb-8">{"// recent_logs"}</p>
             <div className="grid md:grid-cols-3 gap-8">
               {featuredPosts.map((post) => (
                 <Link key={post.id} href={`/blog/${post.slug}`} className="group">
